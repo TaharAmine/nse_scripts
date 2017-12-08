@@ -21,7 +21,7 @@ Please send new or incorrect fingerprint data to daniel@planethacker.net
 
 author = "Daniel Roberson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
-categories = {"default", "discovery", "safe"}
+categories = {"discovery", "safe"}
 
 
 local stdnse = require "stdnse"
