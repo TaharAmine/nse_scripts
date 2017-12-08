@@ -32,6 +32,8 @@ local nmap = require "nmap"
 
 -- Fingerprint table. Please keep in alphabetical order!
 fp_table = {}
+fp_table["255 251 1"] = "APC PDU and UPS devices"
+fp_table["255 253 3"] = "Cisco"
 fp_table["255 253 3 255 251 3 255 251 1"] = "Enterasys Switch"
 fp_table["255 251 3 255 251 1"] = "HP Integrated Lights Out"
 fp_table["255 252 1"] = "HP JetDirect"
