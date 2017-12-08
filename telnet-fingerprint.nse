@@ -35,6 +35,7 @@ fp_table = {}
 fp_table["255 251 1"] = "APC PDU and UPS devices"
 fp_table["255 253 3"] = "Cisco"
 fp_table["255 253 3 255 251 3 255 251 1"] = "Enterasys Switch"
+fp_table["255 251 1 255 251 3"] = "HP LaserJet"
 fp_table["255 251 3 255 251 1"] = "HP Integrated Lights Out"
 fp_table["255 252 1"] = "HP JetDirect"
 fp_table["255 253 24 255 253 32 255 253 35 255 253 39"] = "Linux"
@@ -72,8 +73,17 @@ action = function(host, port)
     end
 
     fingerprint = table.concat(t, " ")
-    output.Fingerprint = fingerprint
 
+    -- Server returned no identifiable data.
+    if fingerprint == "" then
+      output.Fingerprint = "Unable to fingerprint device."
+      client_telnet:close()
+      return output
+    else
+      output.Fingerprint = fingerprint
+    end
+
+    -- Search table for matches 
     output.Match = "No matches found. Please submit fingerprints to daniel@planethacker.net"
     if fp_table[fingerprint] then
       output.Match = fp_table[fingerprint]
