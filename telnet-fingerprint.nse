@@ -37,6 +37,7 @@ fp_table["255 253 3 255 251 3 255 251 1"] = "Enterasys"
 fp_table["255 251 1 255 251 3"] = "HP LaserJet"
 fp_table["255 251 3 255 251 1"] = "HP Integrated Lights Out"
 fp_table["255 252 1"] = "HP JetDirect"
+fp_table["255 251 1 255 251 1 255 251 1 255 251 3 255 253 24 255 253 31"] = "Huawei"
 fp_table["255 253 24 255 253 32 255 253 35 255 253 39"] = "Linux"
 fp_table["255 253 37 255 251 1 255 251 3 255 253 39 255 253 31 255 253 0 255 251 0"] = "Microsoft Telnet Service"
 
