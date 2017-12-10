@@ -1,3 +1,8 @@
+local stdnse = require "stdnse"
+local shortport = require "shortport"
+local comm = require "comm"
+local nmap = require "nmap"
+
 description = [[
 Attempts to fingerprint an open telnet service based on Telnet commands sent
 by the server upon connection. See RFC854 for more details.
@@ -22,12 +27,6 @@ Please send new or incorrect fingerprint data to daniel@planethacker.net
 author = "Daniel Roberson"
 license = "Same as Nmap--See https://nmap.org/book/man-legal.html"
 categories = {"discovery", "safe"}
-
-
-local stdnse = require "stdnse"
-local shortport = require "shortport"
-local comm = require "comm"
-local nmap = require "nmap"
 
 
 -- Fingerprint table. Please keep in alphabetical order!
