@@ -8,8 +8,6 @@ Attempts to fingerprint an open telnet service based on Telnet commands sent
 by the server upon connection. See RFC854 for more details.
 
 Original idea from telnetfp by Palmers of Team TESO.
-
-Please send new or incorrect fingerprint data to daniel@planethacker.net
 ]]
 
 --- 2017-12-7
@@ -30,9 +28,11 @@ categories = {"discovery", "safe"}
 
 
 -- Fingerprint table. Please keep in alphabetical order!
-fp_table = {}
-fp_table["255 251 1"] = "APC PDU and UPS devices"
+local fp_table = {}
+fp_table["255 251 1"] = "APC PDU/UPS devices, Windows CE"
+fp_table["255 251 1 255 253 3 255 251 3 255 253 31"] = "Aruba"
 fp_table["255 253 3"] = "Cisco"
+fp_table["255 251 1 255 251 3 255 253 24 255 253 31"] = "Cisco IOS"
 fp_table["255 253 3 255 251 3 255 251 1"] = "Enterasys"
 fp_table["255 251 1 255 251 3"] = "HP LaserJet"
 fp_table["255 251 3 255 251 1"] = "HP Integrated Lights Out"
@@ -40,6 +40,7 @@ fp_table["255 252 1"] = "HP JetDirect"
 fp_table["255 251 1 255 251 1 255 251 1 255 251 3 255 253 24 255 253 31"] = "Huawei"
 fp_table["255 253 24 255 253 32 255 253 35 255 253 39"] = "Linux"
 fp_table["255 253 37 255 251 1 255 251 3 255 253 39 255 253 31 255 253 0 255 251 0"] = "Microsoft Telnet Service"
+fp_table["255 251 1 255 251 3 255 251 0 255 253 1 255 253 0"] = "Moxa Serial to Ethernet"
 
 
 portrule = shortport.port_or_service(23, "telnet")
